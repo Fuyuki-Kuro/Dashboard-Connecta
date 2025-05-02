@@ -17,35 +17,35 @@ Projeto web estruturado com FastAPI (backend) e Jinja2/HTML/CSS (frontend) com s
 ├── README.md
 │
 ├── backend_api/
-│ ├── auth.py # Login, logout, cadastro
-│ ├── security.py # JWT, verificação de CPF, login
-│ ├── clientes/
-│ │ ├── routes.py # Rotas específicas de clientes
-│ │ └── services.py # Regras de negócio cliente
-│ └── administradores/
-│ ├── routes.py # Rotas específicas de admin
-│ └── services.py # Regras de negócio admin
+│   ├── auth.py                  # Login, logout, cadastro
+│   ├── security.py              # JWT, verificação de CPF, login
+│   ├── clientes/
+│   │   ├── routes.py            # Rotas específicas de clientes
+│   │   └── services.py          # Regras de negócio cliente
+│   └── administradores/
+│       ├── routes.py            # Rotas específicas de admin
+│       └── services.py          # Regras de negócio admin
 │
 ├── frontend_api/
-│ ├── auth.py # Views de login, logout, cadastro (Jinja2)
-│ └── fluxos/
-│ ├── base.html
-│ ├── base.css
-│ ├── theme_dark.css
-│ ├── theme_light.css
-│ │
-│ └── funcionários/
-│ ├── templates/
-│ │ ├── calendário.html
-│ │ ├── dashboard.html
-│ │ ├── services.html
-│ │ └── view_service.html
-│ │
-│ └── static/css/
-│ ├── calendário.css
-│ ├── dashboard.css
-│ ├── services.css
-│ └── view_service.css
+│   ├── auth.py                  # Views de login, logout, cadastro (Jinja2)
+│   └── fluxos/
+│       ├── base.html
+│       ├── base.css
+│       ├── theme_dark.css
+│       ├── theme_light.css
+│       │
+│       └── funcionários/
+│           ├── templates/
+│           │   ├── calendário.html
+│           │   ├── dashboard.html
+│           │   ├── services.html
+│           │   └── view_service.html
+│           │
+│           └── static/css/
+│               ├── calendário.css
+│               ├── dashboard.css
+│               ├── services.css
+│               └── view_service.css
 
 ---
 

@@ -7,15 +7,16 @@ Projeto web estruturado com FastAPI (backend) e Jinja2/HTML/CSS (frontend) com s
 
 ---
 
-## 📁 Estrutura de Diretórios
+### 📁 Project Structure
 
+```text
 .
 ├── main.py
 ├── .env
 ├── database.py
 ├── .gitignore
 ├── README.md
-│
+
 ├── backend_api/
 │   ├── auth.py                  # Login, logout, cadastro
 │   ├── security.py              # JWT, verificação de CPF, login
@@ -25,7 +26,7 @@ Projeto web estruturado com FastAPI (backend) e Jinja2/HTML/CSS (frontend) com s
 │   └── administradores/
 │       ├── routes.py            # Rotas específicas de admin
 │       └── services.py          # Regras de negócio admin
-│
+
 ├── frontend_api/
 │   ├── auth.py                  # Views de login, logout, cadastro (Jinja2)
 │   └── fluxos/
@@ -33,20 +34,18 @@ Projeto web estruturado com FastAPI (backend) e Jinja2/HTML/CSS (frontend) com s
 │       ├── base.css
 │       ├── theme_dark.css
 │       ├── theme_light.css
-│       │
 │       └── funcionários/
 │           ├── templates/
 │           │   ├── calendário.html
 │           │   ├── dashboard.html
 │           │   ├── services.html
 │           │   └── view_service.html
-│           │
 │           └── static/css/
 │               ├── calendário.css
 │               ├── dashboard.css
 │               ├── services.css
 │               └── view_service.css
-
+```
 ---
 
 ## 🛠️ Tecnologias Utilizadas

@@ -18,34 +18,48 @@ Projeto web estruturado com FastAPI (backend) e Jinja2/HTML/CSS (frontend) com s
 ├── README.md
 
 ├── backend_api/
-│   ├── auth.py                  # Login, logout, cadastro
-│   ├── security.py              # JWT, verificação de CPF, login
+│   ├── auth/
+│   │   ├── routes.py            # Rotas de login, logout, cadastro
+│   │   └── services.py          # Lógica de autenticação
+│   │
+│   ├── security/
+│   │   └── security.py          # JWT, verificação de usuário/CPF
+│   │
 │   ├── clientes/
-│   │   ├── routes.py            # Rotas específicas de clientes
-│   │   └── services.py          # Regras de negócio cliente
+│   │   ├── routes.py            # Rotas REST (GET /clientes, POST /clientes/agendar, etc.)
+│   │   └── services.py          # Regras de negócio para clientes
+│   │
 │   └── administradores/
-│       ├── routes.py            # Rotas específicas de admin
-│       └── services.py          # Regras de negócio admin
+│       ├── routes.py            # Rotas REST (GET /admin/dashboard, etc.)
+│       └── services.py          # Regras de negócio para admins
 
 ├── frontend_api/
-│   ├── auth.py                  # Views de login, logout, cadastro (Jinja2)
+│   ├── auth/
+│   │   └── views.py             # Templates Jinja2: login, cadastro, logout
+│   │
 │   └── fluxos/
 │       ├── base.html
 │       ├── base.css
 │       ├── theme_dark.css
 │       ├── theme_light.css
-│       └── funcionários/
+│
+│       ├── clientes/
+│       │   ├── templates/
+│       │   │   ├── calendario.html
+│       │   │   └── services.html
+│       │   └── static/css/
+│       │       ├── calendario.css
+│       │       └── services.css
+│
+│       └── administradores/
 │           ├── templates/
-│           │   ├── calendário.html
 │           │   ├── dashboard.html
-│           │   ├── services.html
 │           │   └── view_service.html
 │           └── static/css/
-│               ├── calendário.css
 │               ├── dashboard.css
-│               ├── services.css
 │               └── view_service.css
 ```
+
 ---
 
 ## 🛠️ Tecnologias Utilizadas

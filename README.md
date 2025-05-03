@@ -1,156 +1,137 @@
 # Dashboard-Connecta
 🇧🇷 PT-BR: Dashboard para agências de marketing de médio e grande porte. Gerencie equipes, clientes e campanhas com métricas em tempo real. Interface responsiva, suporte a temas e integração com MongoDB. Desenvolvido com Python, FastAPI, Jinja2, HTML, CSS e JS.
 
-# 🚀 Sistema Web com FastAPI + Jinja2
+# 📦 FastAPI Modular Project com MongoDB
 
-Projeto web estruturado com FastAPI (backend) e Jinja2/HTML/CSS (frontend) com suporte a temas (dark/light), autenticação JWT, usuários com perfis de cliente e administrador, e estrutura modular organizada para escalabilidade.
+Projeto web moderno usando **FastAPI**, **Jinja2**, e **MongoDB** (orientado a documentos). Estrutura modular com foco em separação de responsabilidades, REST APIs, e suporte a papéis de **clientes**, **funcionários** e **administradores**.
 
 ---
 
-### 📁 Project Structure
+## 📁 Project Structure
+
+
 
 ```text
 .
-├── main.py
-├── .env
-├── database.py
+├── main.py # Inicialização da aplicação FastAPI
+├── .env # Variáveis de ambiente (.env para secrets e URIs)
+├── database.py # Conexão MongoDB usando Motor ou Beanie
 ├── .gitignore
 ├── README.md
 
 ├── backend_api/
-│   ├── auth/
-│   │   ├── routes.py
-│   │   └── services.py
-│   │
-│   ├── security/
-│   │   └── security.py
-│   │
-│   ├── clientes/
-│   │   ├── routes.py                # /clientes, /clientes/servicos, /clientes/contratos
-│   │   ├── services.py
-│   │   ├── models.py
-│   │   └── schemas.py
-│   │
-│   ├── administradores/
-│   │   ├── routes.py                # /admin/usuarios, /admin/equipe, /admin/contratos
-│   │   ├── services.py
-│   │   ├── models.py
-│   │   └── schemas.py
-│   │
-│   └── arquivos/
-│       ├── routes.py                # /upload, /download, /clientes/{id}/anexos
-│       ├── services.py
-│       └── storage.py               # Salvar, listar, remover arquivos
+│ ├── auth/
+│ │ ├── routes.py # /login, /logout, /register
+│ │ └── services.py # Hashing, geração de token, login
+│ │
+│ ├── security/
+│ │ └── security.py # JWT, verificação de tokens e CPF
+│ │
+│ ├── clientes/
+│ │ ├── routes.py # /clientes, /clientes/contratos, /clientes/servicos
+│ │ ├── services.py # Lógica de negócios dos clientes
+│ │ ├── models.py # Documentos Pydantic/Beanie para Cliente, Contrato, Servico
+│ │ └── schemas.py # Schemas de entrada/saída
+│ │
+│ ├── administradores/
+│ │ ├── routes.py # /admin/dashboard, /admin/equipe, /admin/contratos
+│ │ ├── services.py
+│ │ ├── models.py # Documentos Admin, Contratos, Equipe
+│ │ └── schemas.py
+│ │
+│ └── arquivos/
+│ ├── routes.py # /upload, /download, /clientes/{id}/anexos
+│ ├── services.py # Validação e controle de arquivos
+│ └── storage.py # Upload físico (sistema de arquivos ou bucket)
 
 ├── frontend_api/
-│   ├── auth/
-│   │   └── views.py
-│   │
-│   └── fluxos/
-│       ├── base.html
-│       ├── base.css
-│       ├── theme_dark.css
-│       ├── theme_light.css
+│ ├── auth/
+│ │ └── views.py # Templates: login, cadastro, logout
+│ │
+│ └── fluxos/
+│ ├── base.html
+│ ├── base.css
+│ ├── theme_dark.css
+│ ├── theme_light.css
 │
-│       ├── funcionarios/
-│       │   ├── templates/
-│       │   │   ├── dashboard.html
-│       │   │   ├── calendar.html
-│       │   │   ├── work_materials.html
-│       │   │   ├── service.html
-│       │   │   ├── tickets.html
-│       │   │   └── contracts.html
-│       │   └── static/css/
-│       │       ├── dashboard.css
-│       │       ├── calendar.css
-│       │       ├── work_materials.css
-│       │       ├── service.css
-│       │       ├── tickets.css
-│       │       └── contracts.css
+│ ├── funcionarios/
+│ │ ├── templates/
+│ │ │ ├── dashboard.html
+│ │ │ ├── calendar.html
+│ │ │ ├── work_materials.html
+│ │ │ ├── service.html
+│ │ │ ├── tickets.html
+│ │ │ └── contracts.html
+│ │ └── static/css/
+│ │ ├── dashboard.css
+│ │ ├── calendar.css
+│ │ ├── work_materials.css
+│ │ ├── service.css
+│ │ ├── tickets.css
+│ │ └── contracts.css
 │
-│       ├── clientes/
-│       │   ├── templates/
-│       │   │   ├── dashboard.html
-│       │   │   ├── materials.html
-│       │   │   ├── contract.html
-│       │   │   ├── submission_files.html
-│       │   │   └── services.html
-│       │   └── static/css/
-│       │       ├── dashboard.css
-│       │       ├── materials.css
-│       │       ├── contract.css
-│       │       ├── submission_files.css
-│       │       └── services.css
+│ ├── clientes/
+│ │ ├── templates/
+│ │ │ ├── dashboard.html
+│ │ │ ├── materials.html
+│ │ │ ├── contract.html
+│ │ │ ├── submission_files.html
+│ │ │ └── services.html
+│ │ └── static/css/
+│ │ ├── dashboard.css
+│ │ ├── materials.css
+│ │ ├── contract.css
+│ │ ├── submission_files.css
+│ │ └── services.css
 │
-│       └── administradores/
-│           ├── templates/
-│           │   ├── dashboard.html
-│           │   ├── view_service.html
-│           │   ├── contracts.html
-│           │   └── team.html
-│           └── static/css/
-│               ├── dashboard.css
-│               ├── view_service.css
-│               ├── contracts.css
-│               └── team.css
-
+│ └── administradores/
+│ ├── templates/
+│ │ ├── dashboard.html
+│ │ ├── view_service.html
+│ │ ├── contracts.html
+│ │ └── team.html
+│ └── static/css/
+│ ├── dashboard.css
+│ ├── view_service.css
+│ ├── contracts.css
+│ └── team.css
 ```
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🧾 Organização REST com MongoDB
 
-- **Python 3.10+**
-- **FastAPI**
-- **Jinja2**
-- **HTML5 / CSS3**
-- **Uvicorn**
-- **JWT para autenticação**
-- **dotenv para variáveis de ambiente**
-
----
-
-## 🔐 Backend - Segurança
-
-Arquivo `security.py`:
-
-- `criar_token_jwt(data: dict)`: Gera JWT.
-- `verificar_token_jwt(token: str)`: Decodifica e valida token.
-- `verificar_cpf(cpf: str)`: Verifica se o CPF já está cadastrado.
-- `verificar_usuario_logado(token: str)`: Middleware para checar se o usuário está autenticado.
+### ✅ **Collections MongoDB**
+- `users`: clientes, funcionários, admins diferenciados por tipo
+- `services`: solicitações de serviço
+- `contracts`: documentos de contrato com status
+- `attachments`: arquivos enviados
+- `teams`: para gerenciamento interno da equipe admin
 
 ---
 
-## 👥 Perfis de Usuário
+## 🛠 Tecnologias
 
-- **Cliente**:
-  - Visualiza serviços
-  - Acessa calendário e agenda
-  - Autenticado por JWT
-  - Templates: `calendário.html`, `services.html`, etc.
-
-- **Administrador**:
-  - Acessa dashboard de controle
-  - Gerencia serviços
-  - Templates: `dashboard.html`, `view_service.html`, etc.
+- **FastAPI**: Web framework assíncrono
+- **MongoDB**: Banco de dados NoSQL
+- **Motor** ou **Beanie**: ODM para MongoDB
+- **Jinja2**: Templates HTML
+- **CSS**: Temas dark/light
+- **JWT**: Autenticação com segurança
+- **Pydantic**: Validação de dados
 
 ---
 
-## 🎨 Frontend - Temas e Layout
+## 🔐 Padrões REST Aplicados
 
-Arquivos de tema:
-
-- `theme_light.css`: Tema claro
-- `theme_dark.css`: Tema escuro
-- `base.css`: Estilos comuns globais
-- Alternância via JavaScript (`data-theme` no `html`)
+| Método | Rota                          | Descrição                         |
+|--------|-------------------------------|-----------------------------------|
+| GET    | `/clientes/{id}`              | Obter dados do cliente            |
+| POST   | `/clientes/servicos`          | Enviar solicitação de serviço     |
+| GET    | `/clientes/contratos`         | Listar contratos                  |
+| POST   | `/clientes/anexos`            | Enviar arquivos                   |
+| GET    | `/admin/usuarios`             | Listar usuários                   |
+| POST   | `/admin/contratos`            | Criar novo contrato               |
+| GET    | `/admin/equipe`               | Gerenciar membros da equipe       |
 
 ---
-
-## ⚙️ Como Rodar o Projeto
-
-### 1. Clone o repositório
-
-```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo

@@ -143,7 +143,7 @@ Projeto web moderno usando **FastAPI**, **Jinja2**, e **MongoDB** (orientado a d
 ## 📆 Checklist de Desenvolvimento
 
 ### Semana 1 – Setup & Estrutura
-- [ ] Setup do projeto com FastAPI, Jinja2, MongoDB
+- [x] Setup do projeto com FastAPI, Jinja2, MongoDB
 - [ ] Estrutura de pastas backend/frontend
 - [ ] Rotas de autenticação (login, logout, cadastro)
 - [ ] Templates de login/cadastro com Jinja2

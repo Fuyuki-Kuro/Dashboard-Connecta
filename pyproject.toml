@@ -12,4 +12,5 @@ dependencies = [
     "motor>=3.7.0",
     "pymongo[srv]>=4.12.1",
 ]
-
+[tool.setuptools.packages.find]
+include = ["backend_api", "frontend_api"]

@@ -1,0 +1,14 @@
+:root {
+    --color-bg: #1a1a1a;
+    --color-text: #f0f0f0;
+    --color-primary: #ff4081;
+    --color-primary-dark: #e6005c;
+    --color-sidebar-bg: #2a2a2a;
+    --color-sidebar-hover: #ffffff22;
+    --color-card-title: #ff4081;
+    --color-main-bg: rgba(30, 30, 30, 0.65);
+    --color-white: #1e1e1e;
+    --color-shadow: rgba(255, 255, 255, 0.05);
+    --color-shadow-strong: rgba(255, 255, 255, 0.1);
+  }
+  

@@ -12,3 +12,4 @@ dependencies = [
     "motor>=3.7.0",
     "pymongo[srv]>=4.12.1",
 ]
+

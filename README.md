@@ -19,23 +19,32 @@ Projeto web estruturado com FastAPI (backend) e Jinja2/HTML/CSS (frontend) com s
 
 ├── backend_api/
 │   ├── auth/
-│   │   ├── routes.py            # Rotas de login, logout, cadastro
-│   │   └── services.py          # Lógica de autenticação
+│   │   ├── routes.py
+│   │   └── services.py
 │   │
 │   ├── security/
-│   │   └── security.py          # JWT, verificação de usuário/CPF
+│   │   └── security.py
 │   │
 │   ├── clientes/
-│   │   ├── routes.py            # Rotas REST (GET /clientes, POST /clientes/agendar, etc.)
-│   │   └── services.py          # Regras de negócio para clientes
+│   │   ├── routes.py                # /clientes, /clientes/servicos, /clientes/contratos
+│   │   ├── services.py
+│   │   ├── models.py
+│   │   └── schemas.py
 │   │
-│   └── administradores/
-│       ├── routes.py            # Rotas REST (GET /admin/dashboard, etc.)
-│       └── services.py          # Regras de negócio para admins
+│   ├── administradores/
+│   │   ├── routes.py                # /admin/usuarios, /admin/equipe, /admin/contratos
+│   │   ├── services.py
+│   │   ├── models.py
+│   │   └── schemas.py
+│   │
+│   └── arquivos/
+│       ├── routes.py                # /upload, /download, /clientes/{id}/anexos
+│       ├── services.py
+│       └── storage.py               # Salvar, listar, remover arquivos
 
 ├── frontend_api/
 │   ├── auth/
-│   │   └── views.py             # Templates Jinja2: login, cadastro, logout
+│   │   └── views.py
 │   │
 │   └── fluxos/
 │       ├── base.html
@@ -43,21 +52,48 @@ Projeto web estruturado com FastAPI (backend) e Jinja2/HTML/CSS (frontend) com s
 │       ├── theme_dark.css
 │       ├── theme_light.css
 │
+│       ├── funcionarios/
+│       │   ├── templates/
+│       │   │   ├── dashboard.html
+│       │   │   ├── calendar.html
+│       │   │   ├── work_materials.html
+│       │   │   ├── service.html
+│       │   │   ├── tickets.html
+│       │   │   └── contracts.html
+│       │   └── static/css/
+│       │       ├── dashboard.css
+│       │       ├── calendar.css
+│       │       ├── work_materials.css
+│       │       ├── service.css
+│       │       ├── tickets.css
+│       │       └── contracts.css
+│
 │       ├── clientes/
 │       │   ├── templates/
-│       │   │   ├── calendario.html
+│       │   │   ├── dashboard.html
+│       │   │   ├── materials.html
+│       │   │   ├── contract.html
+│       │   │   ├── submission_files.html
 │       │   │   └── services.html
 │       │   └── static/css/
-│       │       ├── calendario.css
+│       │       ├── dashboard.css
+│       │       ├── materials.css
+│       │       ├── contract.css
+│       │       ├── submission_files.css
 │       │       └── services.css
 │
 │       └── administradores/
 │           ├── templates/
 │           │   ├── dashboard.html
-│           │   └── view_service.html
+│           │   ├── view_service.html
+│           │   ├── contracts.html
+│           │   └── team.html
 │           └── static/css/
 │               ├── dashboard.css
-│               └── view_service.css
+│               ├── view_service.css
+│               ├── contracts.css
+│               └── team.css
+
 ```
 
 ---

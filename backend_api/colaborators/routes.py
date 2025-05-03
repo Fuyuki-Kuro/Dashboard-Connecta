@@ -4,6 +4,7 @@ from pathlib import Path
 from fastapi import Request
 templates = Jinja2Templates(directory="frontend_api/fluxos")
 colaborators_router = APIRouter()
+
 menu = {
     "dashboard": True,
     "calendar": True,
@@ -17,7 +18,6 @@ menu = {
     "users": True,
     "settings": True,
 }
-
 
 @colaborators_router.get("/colaborators")
 async def render_colaborators(request: Request):

@@ -23,6 +23,10 @@ Projeto web moderno usando **FastAPI**, **Jinja2**, e **MongoDB** (orientado a d
 │ ├── auth/
 │ │ ├── routes.py # /login, /logout, /register
 │ │ └── services.py # Hashing, geração de token, login
+| | ├── ia/
+│ |     ├── routes.py         # Endpoint /ia/ask com POST para requisições ao assistente
+│ |     ├── services.py       # Função que usa Langchain com ChatGroq
+│ |     └── groq_client.py    # Cliente de conexão com a API da ChatGroq
 │ │
 │ ├── security/
 │ │ └── security.py # JWT, verificação de tokens e CPF

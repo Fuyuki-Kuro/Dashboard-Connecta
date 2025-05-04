@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Form, Request, Response
 from fastapi.templating import Jinja2Templates
 auth_router = APIRouter(tags=["autenticação", 'backend'])
 
@@ -8,5 +8,6 @@ async def login():
     pass
 
 @auth_router.get("/login")
-async def login():
-    return templates.TemplateResponse("login.html", {"request": {}})
+async def login(request: Request):
+
+    return templates.TemplateResponse("login.html", {"request": request})

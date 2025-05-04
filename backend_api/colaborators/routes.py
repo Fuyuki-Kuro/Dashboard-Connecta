@@ -19,4 +19,4 @@ menu = {
 
 @colaborators_router.get("/colaborators")
 async def render_colaborators(request: Request):
-    return templates.TemplateResponse("base.html", {"request": request, "menu": menu})
+    return templates.TemplateResponse("base.html", {"request": request, "menu": menu,})

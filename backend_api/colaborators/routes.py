@@ -1,7 +1,6 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
-from pathlib import Path
-from fastapi import Request
+
 templates = Jinja2Templates(directory="frontend_api/fluxos")
 colaborators_router = APIRouter()
 
@@ -21,4 +20,4 @@ menu = {
 
 @colaborators_router.get("/colaborators")
 async def render_colaborators(request: Request):
-    return templates.TemplateResponse("base.html", {"request": {request}, "menu": menu})
+    return templates.TemplateResponse("base.html", {"request": request, "menu": menu})

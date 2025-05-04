@@ -21,5 +21,5 @@ async def register(request: Request):
 
 @auth_router.get("/logout")
 async def logout(request: Request):
-    return {'message': 'ok'}
+    return {'message': 'ok!'}
 

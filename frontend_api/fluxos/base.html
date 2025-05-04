@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="base.css">
-    <link id="theme-stylesheet" rel="stylesheet" href="/frontend_api/fluxos/theme_light.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="frontend_api/fluxos/theme_light.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
@@ -22,47 +22,47 @@
         <div class="sidebar">
             <ul class="menu">           
                 {%if menu.dashboard %}
-                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="#">Dashboard</a></li>
                 {%endif%}
 
                 {%if menu.calendar %}
-                <li><a href="{{ url_for('calendar') }}">Calendário</a></li>
+                <li><a href="#">Calendário</a></li>
                 {%endif%}
                 
                 {% if menu.work_materials %}
-                <li><a href="{{ url_for('work_materials') }}">Trabalhos</a></li>
+                <li><a href="">Trabalhos</a></li>
                 {% endif %}
 
                 {% if menu.services%}
-                <li><a href="{{ url_for('services') }}">Serviços</a></li>
+                <li><a href="#">Serviços</a></li>
                 {% endif %}
 
                 {% if menu.service %}
-                <li><a href="{{ url_for('service') }}">Serviço</a></li>
+                <li><a href="#">Serviço</a></li>
                 {% endif %}
 
                 {% if menu.contracts %}
-                <li><a href="{{ url_for('contracts') }}">Contratos</a></li>
+                <li><a href="#">Contratos</a></li>
                 {% endif %} 
 
                 {% if menu.tickets %}
-                <li><a href="{{ url_for('tickets') }}">Tickets</a></li>
+                <li><a href="#">Tickets</a></li>
                 {% endif %}
 
                 {% if menu.teams %}
-                <li><a href="{{ url_for('teams') }}">Equipe</a></li>
+                <li><a href="#">Equipe</a></li>
                 {% endif %}
 
                 {% if menu.clients %}
-                <li><a href="{{ url_for('clients') }}">Clientes</a></li>
+                <li><a href="#">Clientes</a></li>
                 {% endif %}
 
                 {% if menu.users %}
-                <li><a href="{{ url_for('users') }}">Usuários</a></li>
+                <li><a href="#">Usuários</a></li>
                 {% endif %}
 
                 {% if menu.settings %}
-                <li><a href="{{ url_for('settings') }}">Configurações</a></li>
+                <li><a href="#">Configurações</a></li>
                 {% endif %}
                 
                 <li><a href="#">Sair</a></li>

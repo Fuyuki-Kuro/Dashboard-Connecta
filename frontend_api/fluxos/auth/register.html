@@ -30,15 +30,19 @@
       </div>
       
       <div class="login-content">
-        <div class="login-logo">
-          <span class="login-left">LO</span>
-          <div class="login-container">
-            <span class="login-branco">GIN</span>
-          </div>
-          <span class="login-rosa">GIN</span>
-        </div>     
         <form action="/" method="POST">
+          <div><input type="text" placeholder="Nome Completo" name="fullname" required></div>
+          <div><input type="text" placeholder="E-mail" name="email" required></div>
+          <div><input type="text" placeholder="CPF" name="cpf" required></div>
+          <div class="form-group">
+            <select name="user_type" required class="input-style">
+              <option value="" disabled selected>Tipo de usuário</option>
+              <option value="colaborador">Colaborador</option>
+              <option value="cliente">Cliente</option>
+            </select>
+          </div>          
           <input type="text" placeholder="usuário" name="username" required>
+
           <div class="password-wrapper">
             <input type="password" id="senha" placeholder="senha" name="password" required>
             <span class="toggle-password" onclick="togglePassword()">
@@ -51,18 +55,13 @@
               </svg>
             </span>
           </div>                  
-          <div class="checkbox-area">
-            <input type="checkbox" id="manter" name="manter_conectado" value="true">
-            <label for="manter">Mantenha-me conectado</label>
-          </div>
           <span class="error-message" id="error-message" {% if not error %}style="display: none;"{% endif %}>
             {% if error %}
               {{ error }}
             {% endif %}
           </span>          
-          <button type="submit">ENTRAR</button>
+          <button type="submit">Registrar</button>
         </form>
-        <a href="#">Esqueci minha Senha</a>
       </div>
     </div>    
   </div>

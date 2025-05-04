@@ -9,4 +9,17 @@ async def login():
 
 @auth_router.get("/login")
 async def login(request: Request):
+
     return templates.TemplateResponse("login.html", {"request": request})
+
+
+@auth_router.get("/register")
+async def register(request: Request):
+    return templates.TemplateResponse("register.html", {"request": request})
+
+
+
+@auth_router.get("/logout")
+async def logout(request: Request):
+    return {'message': 'ok'}
+

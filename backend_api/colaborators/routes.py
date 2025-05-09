@@ -28,6 +28,6 @@ async def render_colaborators(request: Request):
     return templates.TemplateResponse("base.html", {"request": request, "menu": menu})
 
 @colaborators_router.get("/dashboard")
-async def render_dashboard(request: Request, token=Depends(validate_token)):
+async def render_dashboard(request: Request):
     templates = Jinja2Templates(directory="frontend_api/fluxos/colaborators/templates")
     return templates.TemplateResponse("dashboard.html", {"request": request, "menu": menu})

@@ -9,7 +9,6 @@ async def login():
 
 @auth_router.get("/login")
 async def login(request: Request):
-
     return templates.TemplateResponse("login.html", {"request": request})
 
 
